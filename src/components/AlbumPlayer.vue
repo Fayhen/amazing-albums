@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'BandcampPlayer',
@@ -39,16 +39,6 @@ export default defineComponent({
       type: String,
       required: true
     }
-  },
-
-  setup () {
-    onMounted(() => {
-      const player: HTMLAudioElement = document.getElementsByTagName('audio')[0]
-
-      player.addEventListener('onplaying', () => {
-        console.log('Playing song!')
-      })
-    })
   }
 })
 </script>
