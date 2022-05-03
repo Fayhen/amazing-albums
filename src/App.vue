@@ -4,20 +4,12 @@
 
     <CurrentAlbum class="z-10 w-11/12 mx-auto mb-16" />
 
-    <AlbumPlayer class="z-10 w-11/12 mx-auto mb-16"
-      v-for="album in albums.mcbaise" :key="album.albumName"
-      :album-caption="album.albumCaption"
-      :album-url="album.albumUrl"
-      :album-name="album.albumName"
-      :artist="album.artist"
-      :iframe-src="album.iframeSrc"
-    />
+    <AlbumList class="z-10 w-11/12 mx-auto mb-16" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { albums } from './assets/albums'
-import AlbumPlayer from './components/AlbumPlayer.vue'
+import AlbumList from './components/AlbumList.vue'
 import CurrentAlbum from './components/CurrentAlbum.vue'
 </script>
 
