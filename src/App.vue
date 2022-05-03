@@ -1,14 +1,19 @@
 <template>
-<div>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-</div>
+  <div class="flex flex-col">
+    <BandcampPlayer
+      v-for="album in albums.mcbaise" :key="album.albumName"
+      :album-caption="album.albumCaption"
+      :album-url="album.albumUrl"
+      :album-name="album.albumName"
+      :artist="album.artist"
+      :iframe-src="album.iframeSrc"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { albums } from './assets/albums'
+import BandcampPlayer from './components/BandcampPlayer.vue'
 </script>
 
 <style>
