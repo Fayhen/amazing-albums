@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center">
+  <div id="iframe-wrapper" class="shrink-0 rounded-lg overflow-hidden">
     <iframe
       seamless
       style="border:0; width: 350px; height: 470px;"

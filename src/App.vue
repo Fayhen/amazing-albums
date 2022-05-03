@@ -1,6 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <BandcampPlayer
+    <div class="absolute w-full h-96 -mt-16 z-0 bg-neutral-800"></div>
+
+    <CurrentAlbum class="z-10 w-11/12 mx-auto mb-16" />
+
+    <AlbumPlayer class="z-10 w-11/12 mx-auto mb-16"
       v-for="album in albums.mcbaise" :key="album.albumName"
       :album-caption="album.albumCaption"
       :album-url="album.albumUrl"
@@ -13,7 +17,8 @@
 
 <script setup lang="ts">
 import { albums } from './assets/albums'
-import BandcampPlayer from './components/BandcampPlayer.vue'
+import AlbumPlayer from './components/AlbumPlayer.vue'
+import CurrentAlbum from './components/CurrentAlbum.vue'
 </script>
 
 <style>
