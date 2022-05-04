@@ -1,11 +1,11 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /amazing-albums/albums/{album=**} {
+    match /amazing-albums/{album=**} {
       allow read: if true;
       allow write: if false;
     }
-    match /amazing-albums/artists/{artist=**} {
+    match /amazing-albums-artists/{artist=**} {
       allow read: if true;
       allow write: if false;
     }
