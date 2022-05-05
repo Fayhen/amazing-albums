@@ -11,7 +11,7 @@
       :iframe-src="album.iframeSrc"
     />
 
-    <AlbumInfo
+    <AlbumDetails
       :albumCaption="album.albumCaption"
       :artist="album.artist"
     />
@@ -21,14 +21,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { albums } from '@/assets/albums'
-import AlbumInfo from '@/components/AlbumInfo.vue'
+import AlbumDetails from '@/components/AlbumDetails.vue'
 import AlbumPlayer from '@/components/AlbumPlayer.vue'
 
 export default defineComponent({
   name: 'CurrentAlbum',
 
   components: {
-    AlbumInfo,
+    AlbumDetails,
     AlbumPlayer
   },
 
