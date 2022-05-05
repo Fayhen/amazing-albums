@@ -4,7 +4,18 @@
 
     <CurrentAlbum class="z-10 w-11/12 mx-auto mb-16" />
 
-    <AlbumList class="z-10 w-11/12 mx-auto mb-16" />
+    <Suspense>
+      <div class="z-10 ">
+        <h1 class="font-sans text-2xl mb-2">Latest albums:</h1>
+        <AlbumList class="w-11/12 mx-auto mb-16" />
+      </div>
+
+      <template #fallback>
+        <p class="z-10 ">
+          Loading latest albums...
+        </p>
+      </template>
+    </Suspense>
   </div>
 </template>
 

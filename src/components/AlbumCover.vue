@@ -16,6 +16,10 @@ export default defineComponent({
       type: String,
       required: true
     }
+  },
+  mounted () {
+    console.log('this.albumCover')
+    console.log(this.albumCover)
   }
 })
 </script>
