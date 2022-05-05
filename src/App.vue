@@ -20,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import AlbumList from './components/AlbumList.vue'
-import CurrentAlbum from './components/CurrentAlbum.vue'
+import AlbumList from '@/components/AlbumList.vue'
+import CurrentAlbum from '@/components/CurrentAlbum.vue'
 </script>
 
 <style>

@@ -1,6 +1,6 @@
-import { db } from '../boot/firebase'
 import { collection, getDocs, QuerySnapshot, DocumentData, query, orderBy } from 'firebase/firestore'
-import { AlbumData } from './models'
+import { db } from '@/boot/firebase'
+import { AlbumData } from '@/services/models'
 
 const albumsRef = collection(db, 'amazing-albums')
 const artistsRef = collection(db, 'amazing-albums-artists')

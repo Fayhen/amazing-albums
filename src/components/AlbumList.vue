@@ -9,9 +9,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue'
-import { getLatestAlbums } from '../services/firestore'
-import { AlbumData } from '../services/models'
-import AlbumCover from './AlbumCover.vue'
+import { getLatestAlbums } from '@/services/firestore'
+import { AlbumData } from '@/services/models'
+import AlbumCover from '@/components/AlbumCover.vue'
 
 export default defineComponent({
   name: 'AlbumList',

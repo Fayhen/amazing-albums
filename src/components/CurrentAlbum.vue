@@ -20,9 +20,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { albums } from '../assets/albums'
-import AlbumInfo from './AlbumInfo.vue'
-import AlbumPlayer from './AlbumPlayer.vue'
+import { albums } from '@/assets/albums'
+import AlbumInfo from '@/components/AlbumInfo.vue'
+import AlbumPlayer from '@/components/AlbumPlayer.vue'
 
 export default defineComponent({
   name: 'CurrentAlbum',
