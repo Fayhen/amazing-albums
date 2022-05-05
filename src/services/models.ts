@@ -45,6 +45,17 @@ export interface AlbumData {
 }
 
 /**
+ * Album data with additional properties for orchestration within
+ * Vue components.
+ */
+export interface AlbumDataForRender extends AlbumData {
+  /**
+   * Whether or not to render an addition information component.
+   */
+  showInfo: boolean
+}
+
+/**
  * Artist data store in Firestore.
  */
 export interface ArtistData {
