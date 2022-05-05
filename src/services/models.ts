@@ -53,6 +53,10 @@ export interface AlbumDataForRender extends AlbumData {
    * Whether or not to render an addition information component.
    */
   showInfo: boolean
+  /**
+   * Aria-label value for the album cover image.
+   */
+  ariaLabel: string
 }
 
 /**

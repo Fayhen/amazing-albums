@@ -17,7 +17,10 @@
         />
       </Transition>
 
-      <AlbumCover :albumCover="album.albumCover" />
+      <AlbumCover
+        :albumCover="album.albumCover"
+        :ariaLabel="album.ariaLabel"
+      />
     </div>
   </div>
 </template>
@@ -42,7 +45,12 @@ export default defineComponent({
     const showInfo = ref(false)
 
     const albums: Ref<AlbumDataForRender[]> = ref(rawAlbumData.map((album) => {
-      return { ...album, showInfo: false }
+      const parsedAlbum: AlbumDataForRender = {
+        ...album,
+        showInfo: false,
+        ariaLabel: `Cover art of the album ${album.albumName}, by ${album.artist}`
+      }
+      return parsedAlbum
     }))
 
     return {

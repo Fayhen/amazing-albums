@@ -1,6 +1,7 @@
 <template>
   <img
     :src="albumCover"
+    :aria-label="ariaLabel"
     class="aspect-square w-80"
   />
 </template>
@@ -15,11 +16,12 @@ export default defineComponent({
     albumCover: {
       type: String,
       required: true
+    },
+    ariaLabel: {
+      type: String,
+      required: true,
+      default: 'Album cover art'
     }
-  },
-  mounted () {
-    console.log('this.albumCover')
-    console.log(this.albumCover)
   }
 })
 </script>
