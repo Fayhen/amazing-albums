@@ -10,7 +10,7 @@
       @mouseleave="album.showInfo = false"
     >
       <Transition>
-        <AlbumTooltip
+        <AlbumCaption
           v-if="album.showInfo"
           :albumName="album.albumName"
           :artist="album.artist"
@@ -29,15 +29,15 @@
 import { defineComponent, ref, Ref } from 'vue'
 import { getLatestAlbums } from '@/services/firestore'
 import { AlbumDataForRender } from '@/services/models'
+import AlbumCaption from './AlbumCaption.vue'
 import AlbumCover from '@/components/AlbumCover.vue'
-import AlbumTooltip from './AlbumTooltip.vue'
 
 export default defineComponent({
   name: 'AlbumList',
 
   components: {
-    AlbumCover,
-    AlbumTooltip
+    AlbumCaption,
+    AlbumCover
   },
 
   async setup () {

@@ -1,18 +1,17 @@
+
 <template>
-  <div class="absolute -translate-y-12 w-full flex flex-col justify-center">
-    <p>{{ albumName }}</p>
+  <div id="album-info" class="w-full flex flex-col justify-center">
+    <p>{{ albumCaption }}</p>
     <p>{{ artist }}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
 export default defineComponent({
-  name: 'AlbumTooltip',
-
+  name: 'AlbumInfo',
   props: {
-    albumName: {
+    albumCaption: {
       type: String,
       required: true
     },
