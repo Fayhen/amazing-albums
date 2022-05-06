@@ -4,23 +4,23 @@
     class="flex p-1 space-x-3 rounded-lg overflow-hidden bg-slate-200"
   >
     <AlbumPlayer
-      :albumCaption="album.albumCaption"
-      :albumUrl="album.albumUrl"
-      :albumName="album.albumName"
-      :artist="album.artist"
-      :iframe-src="album.iframeSrc"
+      :albumCaption="store.currentAlbum.albumCaption"
+      :albumUrl="store.currentAlbum.albumUrl"
+      :albumName="store.currentAlbum.albumName"
+      :artist="store.currentAlbum.artist"
+      :iframe-src="store.currentAlbum.iframeSrc"
     />
 
     <AlbumDetails
-      :albumCaption="album.albumCaption"
-      :artist="album.artist"
+      :albumCaption="store.currentAlbum.albumCaption"
+      :artist="store.currentAlbum.artist"
     />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { albums } from '@/assets/albums'
+import { useStore } from '@/stores/albums'
 import AlbumDetails from '@/components/AlbumDetails.vue'
 import AlbumPlayer from '@/components/AlbumPlayer.vue'
 
@@ -33,10 +33,10 @@ export default defineComponent({
   },
 
   setup () {
-    const album = albums.mcbaise[0]
+    const store = useStore()
 
     return {
-      album
+      store
     }
   }
 })
