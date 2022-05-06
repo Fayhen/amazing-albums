@@ -1,4 +1,3 @@
-
 <template>
   <div id="album-info" class="w-full flex flex-col justify-center">
     <p>{{ albumCaption }}</p>

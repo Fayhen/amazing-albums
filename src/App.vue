@@ -2,17 +2,15 @@
   <div class="flex flex-col">
     <div class="absolute w-full h-96 -mt-16 z-0 bg-neutral-800"></div>
 
-    <Suspense>
-      <CurrentAlbum
-        v-if="!store.loadingCurrentAlbum"
-        class="z-10 w-11/12 mx-auto"
-      />
+    <CurrentAlbum
+      v-if="!store.loadingCurrentAlbum"
+      class="z-10 w-11/12 mx-auto"
+    />
 
-      <template #fallback>
-        Loading...
-      </template>
-
-    </Suspense>
+    <CurrentAlbumSkeleton
+      v-else
+      class="z-10 w-11/12 mx-auto"
+    />
 
     <Suspense>
       <div class="z-10 my-20">
@@ -34,6 +32,7 @@ import { loadAlbums } from './services/firestore'
 import { useStore } from './stores/albums'
 import AlbumList from '@/components/AlbumList.vue'
 import CurrentAlbum from '@/components/CurrentAlbum.vue'
+import CurrentAlbumSkeleton from '@/components/CurrentAlbumSkeleton.vue'
 
 loadAlbums()
 const store = useStore()
