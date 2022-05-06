@@ -86,6 +86,10 @@ export async function loadAlbums (): Promise<void> {
     const store = useStore()
     const { albumList, currentAlbum, featuredAlbum, lastFetched } = store
 
+    if (currentAlbum === null || currentAlbum === undefined) {
+      store.loadingCurrentAlbum = true
+    }
+
     if (albumList.length === 0) {
       const albums = await fetchAlbums()
       store.albumList = albums
@@ -98,6 +102,7 @@ export async function loadAlbums (): Promise<void> {
 
     if (currentAlbum === null || currentAlbum === undefined) {
       store.currentAlbum = store.featuredAlbum
+      store.loadingCurrentAlbum = false
     }
 
     if (lastFetched === null || lastFetched === undefined) {

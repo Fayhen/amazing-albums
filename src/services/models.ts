@@ -79,6 +79,11 @@ export interface AlbumState {
    * Last album retrieved from Firebase. Used for pagination.
    */
   lastFetched: AlbumDataForRender | null
+  /**
+   * Whether the `CurrentAlbum.vue` component is in a loading
+   * state. True when data is being fetched.
+   */
+  loadingCurrentAlbum: boolean
 
 }
 
