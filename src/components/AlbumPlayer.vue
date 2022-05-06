@@ -1,5 +1,8 @@
 <template>
-  <div id="iframe-wrapper" class="shrink-0 rounded-lg overflow-hidden">
+  <div
+    id="iframe-wrapper"
+    class="shrink-0 rounded-lg overflow-hidden bg-slate-800"
+  >
     <iframe
       seamless
       style="border:0; width: 350px; height: 470px;"

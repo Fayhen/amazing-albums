@@ -91,8 +91,12 @@ export async function loadAlbums (): Promise<void> {
     }
 
     if (albumList.length === 0) {
+      store.loadingAlbumList = true
+
       const albums = await fetchAlbums()
       store.albumList = albums
+
+      store.loadingAlbumList = false
     }
 
     if (featuredAlbum === null || featuredAlbum === undefined) {

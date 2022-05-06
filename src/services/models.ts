@@ -80,8 +80,16 @@ export interface AlbumState {
    */
   lastFetched: AlbumDataForRender | null
   /**
-   * Whether the `CurrentAlbum.vue` component is in a loading
-   * state. True when data is being fetched.
+   * True when the album list if being populated upon initial render
+   * _I.e._, the list was previously empty and is currently being
+   * populated with new data.
+   */
+  loadingAlbumList: boolean
+  /**
+   * True when the `CurrentAlbum.vue` component is in a loading
+   * state. This happens during initial data fetch from Firestore
+   * at application startup, or when a new album is selected by
+   * the user.
    */
   loadingCurrentAlbum: boolean
 
