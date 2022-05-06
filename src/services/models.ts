@@ -60,6 +60,16 @@ export interface AlbumDataForRender extends AlbumData {
 }
 
 /**
+ * Pinia state definition for Album data.
+ */
+export interface AlbumState {
+  /**
+   * Featured album to be displayed on initial application load.
+   */
+  featuredAlbum: AlbumData | undefined
+}
+
+/**
  * Artist data store in Firestore.
  */
 export interface ArtistData {
