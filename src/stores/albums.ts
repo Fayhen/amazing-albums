@@ -3,6 +3,9 @@ import { AlbumState } from '@/services/models'
 
 export const useStore = defineStore('albums', {
   state: (): AlbumState => ({
-    featuredAlbum: undefined
+    albumList: [],
+    currentAlbum: undefined,
+    featuredAlbum: undefined,
+    lastFetched: null
   })
 })

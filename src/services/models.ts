@@ -64,9 +64,22 @@ export interface AlbumDataForRender extends AlbumData {
  */
 export interface AlbumState {
   /**
+   * Album list retrieved from Firestore.
+   */
+  albumList: AlbumData[]
+  /**
+   * Currently selected album.
+   */
+  currentAlbum: AlbumData | undefined
+  /**
    * Featured album to be displayed on initial application load.
    */
   featuredAlbum: AlbumData | undefined
+  /**
+   * Last album retrieved from Firebase. Used for pagination.
+   */
+  lastFetched: AlbumData | null
+
 }
 
 /**

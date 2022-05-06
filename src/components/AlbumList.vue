@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue'
-import { getLatestAlbums } from '@/services/firestore'
+import { fetchAlbums } from '@/services/firestore'
 import { AlbumDataForRender } from '@/services/models'
 import AlbumCaption from './AlbumCaption.vue'
 import AlbumCover from '@/components/AlbumCover.vue'
@@ -41,7 +41,7 @@ export default defineComponent({
   },
 
   async setup () {
-    const rawAlbumData = await getLatestAlbums()
+    const rawAlbumData = await fetchAlbums()
     const showInfo = ref(false)
 
     const albums: Ref<AlbumDataForRender[]> = ref(rawAlbumData.map((album) => {

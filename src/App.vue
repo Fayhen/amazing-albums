@@ -20,8 +20,11 @@
 </template>
 
 <script setup lang="ts">
+import { loadAlbums } from './services/firestore'
 import AlbumList from '@/components/AlbumList.vue'
 import CurrentAlbum from '@/components/CurrentAlbum.vue'
+
+loadAlbums()
 </script>
 
 <style>
