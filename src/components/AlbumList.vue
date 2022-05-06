@@ -4,7 +4,7 @@
     class="flex flex-wrap gap-8 justify-center"
   >
     <div
-      v-for="album in albums" :key="album.albumCover"
+      v-for="album in albums.albumList" :key="album.albumCover"
       class="transform transition duration-500 hover:scale-110"
       @mouseenter="album.showInfo = true"
       @mouseleave="album.showInfo = false"
@@ -26,9 +26,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, Ref } from 'vue'
-import { fetchAlbums } from '@/services/firestore'
-import { AlbumDataForRender } from '@/services/models'
+import { defineComponent } from 'vue'
+import { useStore } from '@/stores/albums'
 import AlbumCaption from './AlbumCaption.vue'
 import AlbumCover from '@/components/AlbumCover.vue'
 
@@ -41,21 +40,10 @@ export default defineComponent({
   },
 
   async setup () {
-    const rawAlbumData = await fetchAlbums()
-    const showInfo = ref(false)
-
-    const albums: Ref<AlbumDataForRender[]> = ref(rawAlbumData.map((album) => {
-      const parsedAlbum: AlbumDataForRender = {
-        ...album,
-        showInfo: false,
-        ariaLabel: `Cover art of the album ${album.albumName}, by ${album.artist}`
-      }
-      return parsedAlbum
-    }))
+    const albums = useStore()
 
     return {
-      albums,
-      showInfo
+      albums
     }
   }
 })
