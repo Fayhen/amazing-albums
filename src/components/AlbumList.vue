@@ -39,7 +39,7 @@ export default defineComponent({
     AlbumCover
   },
 
-  async setup () {
+  setup () {
     const albums = useStore()
 
     return {

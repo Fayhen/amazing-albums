@@ -7,6 +7,7 @@ export const useStore = defineStore('albums', {
     currentAlbum: undefined,
     featuredAlbum: undefined,
     lastFetched: null,
+    loadingAlbumList: false,
     loadingCurrentAlbum: false
   })
 })

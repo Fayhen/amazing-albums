@@ -12,18 +12,27 @@
       class="z-10 w-11/12 mx-auto"
     />
 
-    <Suspense>
-      <div class="z-10 my-20">
-        <h1 class="font-sans text-2xl mb-20">Recently added:</h1>
-        <AlbumList class="w-11/12 mx-auto" />
-      </div>
+    <div
+      v-if="store.loadingAlbumList"
+      class="z-10 my-20"
+    >
+      <h1 class="font-sans text-2xl mb-20">Loading latest albums...</h1>
+    </div>
 
-      <template #fallback>
-        <p class="z-10 ">
-          Loading latest albums...
-        </p>
-      </template>
-    </Suspense>
+    <div
+      v-else-if="!store.loadingAlbumList && store.albumList.length === 0"
+      class="z-10 my-20"
+    >
+      <h1 class="font-sans text-2xl mb-20">No albums to show</h1>
+    </div>
+
+    <div
+      v-else
+      class="z-10 my-20"
+    >
+      <h1 class="font-sans text-2xl mb-20">Recently added:</h1>
+      <AlbumList class="w-11/12 mx-auto" />
+    </div>
   </div>
 </template>
 
