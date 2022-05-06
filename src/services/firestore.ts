@@ -81,6 +81,16 @@ export async function fetchArtists (): Promise<QuerySnapshot<DocumentData> | und
   }
 }
 
+export function changeCurrentAlbum (newAlbum: AlbumDataForRender): void {
+  try {
+    const store = useStore()
+    store.currentAlbum = newAlbum
+  } catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
 export async function loadAlbums (): Promise<void> {
   try {
     const store = useStore()
