@@ -1,6 +1,6 @@
 import { collection, getDocs, QuerySnapshot, DocumentData, query, orderBy, doc, getDoc } from 'firebase/firestore'
 import { db } from '@/boot/firebase'
-import { AlbumData } from '@/services/models'
+import { AlbumData, AlbumDataForRender } from '@/services/models'
 import { useStore } from '@/stores/albums'
 
 const albumsRef = collection(db, 'amazing-albums')
@@ -9,7 +9,7 @@ const featuredAlbumRef = doc(albumsRef, 'tubes')
 
 const latestAlbumsQuery = query(albumsRef, orderBy('created', 'desc'))
 
-export async function fetchAlbums (): Promise<AlbumData[] | []> {
+export async function fetchAlbums (): Promise<AlbumDataForRender[] | []> {
   try {
     const albumsQuery = await getDocs(albumsRef)
 
@@ -17,7 +17,14 @@ export async function fetchAlbums (): Promise<AlbumData[] | []> {
       const albumList = albumsQuery.docs
 
       const parsedAlbums = albumList.map((album) => {
-        return album.data() as AlbumData
+        const rawData = album.data() as AlbumData
+        const parsedData: AlbumDataForRender = {
+          ...rawData,
+          showInfo: false,
+          ariaLabel: `Cover art of the album ${rawData.albumName}, by ${rawData.artist}`
+        }
+
+        return parsedData
       })
 
       return parsedAlbums
@@ -45,12 +52,20 @@ export async function fetchLatestAlbums (): Promise<AlbumData[]> {
   }
 }
 
-export async function fetchFeaturedAlbum (): Promise<AlbumData | undefined> {
+export async function fetchFeaturedAlbum (): Promise<AlbumDataForRender | undefined> {
   try {
     const featuredAlbum = await getDoc(featuredAlbumRef)
 
-    if (featuredAlbum.exists()) return featuredAlbum.data() as AlbumData
-    else return undefined
+    if (featuredAlbum.exists()) {
+      const rawData = featuredAlbum.data() as AlbumData
+      const parsedData = {
+        ...rawData,
+        showInfo: false,
+        ariaLabel: `Cover art of the album ${rawData.albumName}, by ${rawData.artist}`
+      }
+
+      return parsedData
+    } else return undefined
   } catch (error) {
     console.log(error)
     throw error
@@ -63,20 +78,6 @@ export async function fetchArtists (): Promise<QuerySnapshot<DocumentData> | und
     return artistsQuery
   } catch (error) {
     console.error(error)
-  }
-}
-
-export async function loadFeaturedAlbum (): Promise<void> {
-  try {
-    const albumStore = useStore()
-
-    if (albumStore.featuredAlbum === null || albumStore.featuredAlbum === undefined) {
-      const featured = await fetchFeaturedAlbum()
-      albumStore.featuredAlbum = featured
-    }
-  } catch (error) {
-    console.log(error)
-    throw error
   }
 }
 

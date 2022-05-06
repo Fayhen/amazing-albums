@@ -66,19 +66,19 @@ export interface AlbumState {
   /**
    * Album list retrieved from Firestore.
    */
-  albumList: AlbumData[]
+  albumList: AlbumDataForRender[]
   /**
    * Currently selected album.
    */
-  currentAlbum: AlbumData | undefined
+  currentAlbum: AlbumDataForRender | undefined
   /**
    * Featured album to be displayed on initial application load.
    */
-  featuredAlbum: AlbumData | undefined
+  featuredAlbum: AlbumDataForRender | undefined
   /**
    * Last album retrieved from Firebase. Used for pagination.
    */
-  lastFetched: AlbumData | null
+  lastFetched: AlbumDataForRender | null
 
 }
 
